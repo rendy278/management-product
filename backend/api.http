@@ -1,0 +1,32 @@
+### Register
+POST http://127.0.0.1:8000/api/register
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "johndoe@example.com",
+  "password": "password",
+  "password_confirmation": "password"
+}
+
+### Login
+POST http://127.0.0.1:8000/api/login
+Content-Type: application/json
+
+{
+  "email": "johndoe@example.com",
+  "password": "password"
+}
+
+### Copy token di bawah setelah login (Bearer <TOKEN>), lalu paste di Authorization header berikut untuk endpoint lainnya
+
+@token = Bearer 3|L4reTTJsIDRagfa1XdpEQYJpYyDya7nYQgRXwgoJcae7afb6
+
+### Profile (protected)
+GET http://127.0.0.1:8000/api/profile
+Authorization: {{token}}
+
+### Logout
+POST http://127.0.0.1:8000/api/logout
+Authorization: {{token}}
+
